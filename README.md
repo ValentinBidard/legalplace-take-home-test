@@ -45,3 +45,17 @@ To make sure that you will not break anything in the existing code, we added the
 ```sh
 yarn start
 ```
+
+## 🎨 Commit Guidelines Using Gitmoji
+
+This project follows the [Gitmoji RFC](https://gitmoji.dev/), a standard for including emojis in commit messages to make them more expressive and informative. Each emoji represents a specific type of change. Below are the common Gitmoji codes used in this project:
+
+| Emoji | Code                 | Description                          |
+|-------|----------------------|--------------------------------------|
+| ✨    | `:sparkles:`         | Adding a new feature.                |
+| ✅    | `:white_check_mark:` | Adding or updating tests.            |
+| 📝    | `:memo:`             | Updating documentation.              |
+| ♻️    | `:recycle:`          | Refactoring or improving code structure. |
+
+
+By adhering to this standard, commits are easier to read, categorize, and understand for all team members. For more details, visit the [Gitmoji documentation](https://gitmoji.dev/).
