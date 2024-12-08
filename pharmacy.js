@@ -41,6 +41,12 @@ class HerbalTeaStrategy extends DrugStrategy {
   }
 }
 
+class MagicPillStrategy extends DrugStrategy {
+  update() {
+    // Magic Pill doesn't change
+  }
+}
+
 export class Pharmacy {
   constructor(drugs = []) {
     this.drugs = drugs;
