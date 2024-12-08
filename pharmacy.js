@@ -6,6 +6,28 @@ export class Drug {
   }
 }
 
+class DrugStrategy {
+  constructor(drug) {
+    this.drug = drug;
+  }
+
+  /**
+   * @description
+   * Update the benefit of the drug
+   * @returns {void}
+   */
+  update() {
+    if (this.drug.benefit > 0) {
+      this.drug.benefit -= 1;
+    }
+    this.drug.expiresIn -= 1;
+    if (this.drug.expiresIn < 0 && this.drug.benefit > 0) {
+      this.drug.benefit -= 1;
+    }
+    this.drug.benefit = Math.max(this.drug.benefit, 0);
+  }
+}
+
 export class Pharmacy {
   constructor(drugs = []) {
     this.drugs = drugs;
