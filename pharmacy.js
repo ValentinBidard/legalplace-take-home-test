@@ -28,6 +28,19 @@ class DrugStrategy {
   }
 }
 
+class HerbalTeaStrategy extends DrugStrategy {
+  update() {
+    if (this.drug.benefit < 50) {
+      this.drug.benefit += 1;
+    }
+    this.drug.expiresIn -= 1;
+    if (this.drug.expiresIn < 0 && this.drug.benefit < 50) {
+      this.drug.benefit += 1;
+    }
+    this.drug.benefit = Math.min(this.drug.benefit, 50); // Cap benefit at 50
+  }
+}
+
 export class Pharmacy {
   constructor(drugs = []) {
     this.drugs = drugs;
