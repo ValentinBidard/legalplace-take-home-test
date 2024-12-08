@@ -65,6 +65,19 @@ class FervexStrategy extends DrugStrategy {
   }
 }
 
+class DafalganStrategy extends DrugStrategy {
+  update() {
+    if (this.drug.benefit > 0) {
+      this.drug.benefit -= 2; // Degrades twice as fast
+    }
+    this.drug.expiresIn -= 1;
+    if (this.drug.expiresIn < 0 && this.drug.benefit > 0) {
+      this.drug.benefit -= 2; // Degrades twice as fast after expiration
+    }
+    this.drug.benefit = Math.max(this.drug.benefit, 0); // Ensure non-negative benefit
+  }
+}
+
 export class Pharmacy {
   constructor(drugs = []) {
     this.drugs = drugs;
