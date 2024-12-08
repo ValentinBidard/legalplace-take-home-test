@@ -47,6 +47,24 @@ class MagicPillStrategy extends DrugStrategy {
   }
 }
 
+class FervexStrategy extends DrugStrategy {
+  update() {
+    if (this.drug.expiresIn > 0) {
+      if (this.drug.expiresIn <= 5) {
+        this.drug.benefit += 3;
+      } else if (this.drug.expiresIn <= 10) {
+        this.drug.benefit += 2;
+      } else {
+        this.drug.benefit += 1;
+      }
+    } else {
+      this.drug.benefit = 0; // Fervex drops to 0 after expiration
+    }
+    this.drug.expiresIn -= 1;
+    this.drug.benefit = Math.min(this.drug.benefit, 50); // Cap benefit at 50
+  }
+}
+
 export class Pharmacy {
   constructor(drugs = []) {
     this.drugs = drugs;
